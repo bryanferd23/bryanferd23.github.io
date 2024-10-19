@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferdz Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">Ferdz</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="darkModeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <h1 class="glitch" data-text="Code. Innovate. Create.">Code. Innovate. Create.</h1>
+                    <p class="subtitle">Bringing ideas to life through code and innovation</p>
+                    <a href="#portfolio" class="cta-button">Explore My Work</a>
+                </div>
+                <div class="profile-container" data-aos="fade-left">
+                    <img src="resources/profile-image.jpg" alt="Ferdz" class="profile-image">
+                    <div class="profile-outline" aria-hidden="true"></div>
+                    <div class="profile-dots" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="reveal-text">Featured Projects</span>
+            </h2>
+            <div class="project-grid">
+                <article class="project-card" data-aos="zoom-in">
+                    <div class="project-content" style="background-image: url('resources/project/RIS.png');">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <h3>Radiology Information System</h3>
+                            <p>A comprehensive solution for managing radiology workflows and patient data.</p>
+                            <ul class="project-tech-stack">
+                                <li>PHP</li>
+                                <li>MySQL</li>
+                                <li>JavaScript</li>
+                                <li>HTML/CSS</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/bryanferd23/Radiology-Information-System-with-Teleradiology" class="project-link github" target="_blank" aria-label="View Radiology Information System GitHub Repository">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-content" style="background-image: url('resources/project/data-analysis.png');">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <h3>Google Sheet Master</h3>
+                            <p>Advanced data analysis and reporting tool leveraging Google Sheets capabilities.</p>
+                            <ul class="project-tech-stack">
+                                <li>Google Apps Script</li>
+                                <li>Data Analysis</li>
+                                <li>Reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-content" style="background-image: url('resources/project/restful-api.png');">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <h3>Restful API</h3>
+                            <p>A robust RESTful API service for seamless data exchange and integration across multiple platforms.</p>
+                            <ul class="project-tech-stack">
+                                <li>Laravel</li>
+                                <li>SQLite</li>
+                                <li>API Development</li>
+                                <li>Version Control</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/bryanferd23/restfulAPI" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-content" style="background-image: url('resources/project/smart-power-tracker.jpeg');">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <h3>Smart Power Tracker</h3>
+                            <p>An innovative IoT solution for real-time energy consumption monitoring and optimization in smart homes and buildings.</p>
+                            <ul class="project-tech-stack">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank" aria-label="View Google Sheet Master Project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-content" style="background-image: url('resources/project/BHMS2.jpeg');">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <h3>Boarding House Management System</h3>
+                            <p>A comprehensive system for managing boarding house operations, payments, and resident management.</p>
+                            <ul class="project-tech-stack">
+                                <li>Laravel</li>
+                                <li>Tailwind</li>
+                                <li>JavaScript</li>
+                                <li>MySQL</li>
+                                <li>MVC</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/bryanferd23/BHMS2" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-content" style="background-image: url('resources/project/pos.png');">
+                        <div class="project-overlay"></div>
+                        <div class="project-info">
+                            <h3>Point of Sale</h3>
+                            <p>An efficient point-of-sale system designed to streamline transactions, inventory management, and sales reporting for retail businesses.</p>
+                            <ul class="project-tech-stack">
+                                <li>HTML</li>
+                                <li>Tailwind</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://bryanferd23.github.io/bryanferd23.github.io-simple-pos/" class="project-link" target="_blank" aria-label="View Google Sheet Master Project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://github.com/bryanferd23/bryanferd23.github.io-simple-pos" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="view-more-container">
+                <a href="https://github.com/bryanferd23" target="_blank" class="cta-button">View More Projects</a>
+            </div>
+        </section>
+
+
+        <section id="certifications" class="certifications">
+            <div class="certifications">
+                <h3 class="cert-title">Certifications</h3>
+                <div class="cert-container">
+                    <div class="cert-card" data-cert="cert1">
+                        <div class="cert-front">
+                        </div>
+                        <div class="cert-back">
+                            <h4>Computer Programming</h4>
+                            <p>Department of Information and Communications Technology</p>
+                            <a href="#" class="cert-link" data-image="resources/cert1.jpg">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-card" data-cert="cert2">
+                        <div class="cert-front">
+                        </div>
+                        <div class="cert-back">
+                            <h4>EDP Specialist</h4>
+                            <p>Civil Service Commission</p>
+                            <p>2023</p>
+                            <a href="#" class="cert-link" data-image="resources/cert2.jpg">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-card" data-cert="cert3">
+                        <div class="cert-front">
+                        </div>
+                        <div class="cert-back">
+                            <h4>TEFL</h4>
+                            <p>Techer Record</p>
+                            <p>2023</p>
+                            <a href="#" class="cert-link" data-image="resources/cert3.jpg">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2 class="highlight">
+                    <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span>
+                    <span>M</span><span>e</span>
+                </h2>
+                <p>As a passionate full-stack developer, I blend creativity with technical expertise to craft digital experiences that leave a lasting impression. My journey in tech is driven by:</p>
+                <ul class="about-list">
+                    <li><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
+                    <li><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
+                    <li><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
+                    <li><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
+                </ul>
+                <p>Whether it's building robust web applications or streamlining processes through innovative software, I'm dedicated to pushing the boundaries of what's possible in the digital realm.</p>
+                
+                
+                <div class="cta-container">
+                    <a href="#contact" class="cta-button">Get in Touch</a>
+                    <a href="resources/perante_resume.pdf" target="_blank" class="download-cv" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="contact-description">Have a question or want to work together? I'd love to hear from you!</p>
+                <form id="contactForm" class="contact-form" onsubmit="return sendEmail(event);">
+                    <div class="form-group">
+                        <label for="subject" class="visually-hidden">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="visually-hidden">Message</label>
+                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                    </button>
+                </form>
+                <div id="formStatus" class="form-status" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/bryanferd23" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/fjperante/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/bryanferd23/" target="_blank" aria-label="Twitter"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <p>&copy; 2024 Ferdz. All rights reserved.</p>
+        <p>This project is owned and maintained by Ferdz. View the source code on <a href="https://github.com/bryanferd23/bryanferd23.github.io" target="_blank">GitHub</a>.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <div id="certModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="certImage">
+    </div>
+</body>
+</html>
