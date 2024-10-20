@@ -95,12 +95,12 @@ nav ul li a:hover {
 
 /* Hero Section Styles */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 2rem 20px;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     position: relative;
     overflow: hidden;
@@ -954,6 +954,9 @@ footer {
     .nav-links li:nth-child(4) {
         transition: all 0.3s ease 0.4s;
     }
+    .nav-links li:nth-child(5) {
+        transition: all 0.3s ease 0.5s;
+    }
 
     .nav-links.open li {
         opacity: 1;
@@ -1312,13 +1315,15 @@ footer {
     background-color: #fefefe;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.7);
     transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal.show .modal-content {
@@ -1327,12 +1332,21 @@ footer {
 
 .close {
     color: #aaa;
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 20px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 1010;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 40px;  /* Set a fixed width */
+    height: 40px; /* Set a fixed height equal to the width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 1; /* Ensure the X is vertically centered */
 }
 
 .close:hover,
@@ -1348,3 +1362,45 @@ footer {
     display: block;
     margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .close {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+        width: 35px;  /* Slightly smaller for mobile */
+        height: 35px;
+    }
+}
+
+@media (max-width: 768px) and (max-height: 600px) {
+    .hero {
+        align-items: flex-start;
+        padding-top: 4rem; /* Increase top padding */
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Reduce font size */
+        margin-top: 1rem; /* Add some top margin */
+    }
+
+    .subtitle {
+        font-size: 1.2rem; /* Reduce subtitle font size */
+    }
+
+    .profile-container {
+        margin-top: 1rem; /* Add space above the profile image */
+    }
+}
+
+
+
