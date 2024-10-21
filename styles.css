@@ -235,12 +235,13 @@ nav ul li a:hover {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
+    height: 325px; /* Increased from 300px to 350px */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project-content {
     position: relative;
-    height: 250px;
+    height: 100%;
     background-size: cover;
     background-position: top center;
 }
