@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-theme="light" data-reduced-motion="auto">
+    <a href="#mainContent" class="visually-hidden skip-link">Skip to main content</a>
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="#home" class="logo">Ferdz</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" aria-current="page">Home</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#about">About</a></li>
@@ -30,20 +34,45 @@
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
+    <main id="mainContent" role="main">
+        <section id="home" class="hero hero-2025">
+            <div class="hero-bg-gradient"></div>
+            <!-- Animated Blob SVG Background -->
+            <svg class="hero-blob-bg" viewBox="0 0 800 600" width="100%" height="100%" style="position:absolute;top:0;left:0;width:100vw;height:100vh;z-index:1;pointer-events:none;">
+                <defs>
+                    <linearGradient id="blobGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#a18cd1"/>
+                        <stop offset="100%" stop-color="#fbc2eb"/>
+                    </linearGradient>
+                </defs>
+                <path id="blob" fill="url(#blobGradient)" opacity="0.35">
+                    <animate attributeName="d" dur="12s" repeatCount="indefinite"
+                        values="M421,320Q420,390,350,420Q280,450,210,420Q140,390,140,320Q140,250,210,220Q280,190,350,220Q420,250,421,320Z;
+                        M430,320Q420,390,350,420Q280,450,210,420Q140,390,160,320Q180,250,210,220Q280,190,350,220Q420,250,430,320Z;
+                        M421,320Q420,390,350,420Q280,450,210,420Q140,390,140,320Q140,250,210,220Q280,190,350,220Q420,250,421,320Z"/>
+                </path>
+            </svg>
             <div class="hero-content">
                 <div class="hero-text" data-aos="fade-right">
-                    <h1 class="glitch" data-text="Code. Innovate. Create.">Code. Innovate. Create.</h1>
-                    <p class="subtitle">Bringing ideas to life through code and innovation</p>
-                    <a href="#portfolio" class="cta-button">Explore My Work</a>
+                    <h1 class="glitch hero-headline-2025" data-text="Code. Innovate. Create.">
+                        <span class="headline-gradient">Code. Innovate. Create.</span>
+                    </h1>
+                    <p class="subtitle" style="z-index:2;position:relative;">Bringing ideas to life through code and innovation</p>
+                    <a href="#portfolio" class="cta-button cta-2025">
+                        <span class="cta-text">Explore My Work</span>
+                        <span class="cta-arrow">→</span>
+                    </a>
                 </div>
-                <div class="profile-container" data-aos="fade-left">
-                    <img src="resources/profile-image.jpg" alt="Ferdz" class="profile-image">
+                <div class="profile-container profile-3d parallax-img" data-aos="fade-left">
+                    <img src="resources/profile-image.jpg" alt="Ferdz" class="profile-image profile-image-3d" loading="lazy">
                     <div class="profile-outline" aria-hidden="true"></div>
                     <div class="profile-dots" aria-hidden="true"></div>
                 </div>
             </div>
+            <!-- SVG Divider -->
+            <svg class="section-divider" viewBox="0 0 1440 120" width="100%" height="120" style="position:absolute;bottom:-1px;left:0;width:100vw;height:120px;z-index:2;pointer-events:none;">
+                <path fill="#fff" fill-opacity="1" d="M0,64L48,74.7C96,85,192,107,288,117.3C384,128,480,128,576,112C672,96,768,64,864,69.3C960,75,1056,117,1152,128C1248,139,1344,117,1392,106.7L1440,96L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+            </svg>
         </section>
 
         <section id="portfolio" class="portfolio">
@@ -51,171 +80,365 @@
                 <span class="reveal-text">Featured Projects</span>
             </h2>
             <div class="project-grid">
-                <article class="project-card" data-aos="zoom-in">
-                    <div class="project-content" style="background-image: url('resources/project/RIS.png');">
+                <article class="project-card glass-card tilt-card" data-aos="zoom-in">
+                    <div class="project-content" style="background-image: none;">
+                        <img src="resources/project/RIS.png" alt="Radiology Information System" class="project-img" loading="lazy" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
-                            <h3>Radiology Information System</h3>
+                            <h3 class="project-title">Radiology Information System</h3>
                             <p>A comprehensive solution for managing radiology workflows and patient data.</p>
                             <ul class="project-tech-stack">
-                                <li>PHP</li>
-                                <li>MySQL</li>
-                                <li>JavaScript</li>
-                                <li>HTML/CSS</li>
+                                <li class="tech-chip">PHP</li>
+                                <li class="tech-chip">MySQL</li>
+                                <li class="tech-chip">JavaScript</li>
+                                <li class="tech-chip">HTML/CSS</li>
                             </ul>
                             <div class="project-links">
-                                <a href="https://github.com/bryanferd23/Radiology-Information-System-with-Teleradiology" class="project-link github" target="_blank" aria-label="View Radiology Information System GitHub Repository">
+                                <a href="https://github.com/bryanferd23/Radiology-Information-System-with-Teleradiology" class="project-link github" target="_blank" aria-label="View Radiology Information System on GitHub" title="View on GitHub">
                                     <i class="fab fa-github" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
-                    <div class="project-content" style="background-image: url('resources/project/data-analysis.png');">
+                <article class="project-card glass-card tilt-card">
+                    <div class="project-content" style="background-image: none;">
+                        <img src="resources/project/data-analysis.png" alt="Google Sheet Master" class="project-img" loading="lazy" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
-                            <h3>Google Sheet Master</h3>
+                            <h3 class="project-title">Google Sheet Master</h3>
                             <p>Advanced data analysis and reporting tool leveraging Google Sheets capabilities.</p>
                             <ul class="project-tech-stack">
-                                <li>Google Apps Script</li>
-                                <li>Data Analysis</li>
-                                <li>Reporting</li>
+                                <li class="tech-chip">Google Apps Script</li>
+                                <li class="tech-chip">Data Analysis</li>
+                                <li class="tech-chip">Reporting</li>
                             </ul>
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
-                    <div class="project-content" style="background-image: url('resources/project/restful-api.png');">
+                <article class="project-card glass-card tilt-card">
+                    <div class="project-content" style="background-image: none;">
+                        <img src="resources/project/restful-api.png" alt="Restful API" class="project-img" loading="lazy" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
-                            <h3>Restful API</h3>
+                            <h3 class="project-title">Restful API</h3>
                             <p>A robust RESTful API service for seamless data exchange and integration across multiple platforms.</p>
                             <ul class="project-tech-stack">
-                                <li>Laravel</li>
-                                <li>SQLite</li>
-                                <li>API Development</li>
-                                <li>Version Control</li>
+                                <li class="tech-chip">Laravel</li>
+                                <li class="tech-chip">SQLite</li>
+                                <li class="tech-chip">API Development</li>
+                                <li class="tech-chip">Version Control</li>
                             </ul>
                             <div class="project-links">
-                                <a href="https://github.com/bryanferd23/restfulAPI" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                <a href="https://github.com/bryanferd23/restfulAPI" class="project-link github" target="_blank" aria-label="View RESTful API on GitHub" title="View on GitHub">
                                     <i class="fab fa-github" aria-hidden="true"></i>
                                 </a>
+
                             </div>
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
-                    <div class="project-content" style="background-image: url('resources/project/power-tracker.png');">
+                <article class="project-card glass-card tilt-card">
+                    <div class="project-content" style="background-image: none;">
+                        <img src="resources/project/power-tracker.png" alt="Smart Power Tracker" class="project-img" loading="lazy" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
-                            <h3>Smart Power Tracker</h3>
+                            <h3 class="project-title">Smart Power Tracker</h3>
                             <p>An innovative IoT solution for real-time energy consumption monitoring and optimization in smart homes and buildings.</p>
                             <ul class="project-tech-stack">
-                                <li>React Native</li>
-                                <li>Expo</li>
-                                <li>Android</li>
-                                <li>iOS</li>
-                                <li>Web</li>
+                                <li class="tech-chip">React Native</li>
+                                <li class="tech-chip">Expo</li>
+                                <li class="tech-chip">Android</li>
+                                <li class="tech-chip">iOS</li>
+                                <li class="tech-chip">Web</li>
                             </ul>
                             <div class="project-links">
-                                <a href="https://github.com/bryanferd23/react-native-power-tracker" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                <a href="https://github.com/bryanferd23/react-native-power-tracker" class="project-link github" target="_blank" aria-label="View Smart Power Tracker on GitHub" title="View on GitHub">
                                     <i class="fab fa-github" aria-hidden="true"></i>
                                 </a>
+
                             </div>
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
-                    <div class="project-content" style="background-image: url('resources/project/BHMS2.jpeg');">
+                <article class="project-card glass-card tilt-card">
+                    <div class="project-content" style="background-image: none;">
+                        <img src="resources/project/BHMS2.jpeg" alt="Boarding House Management System" class="project-img" loading="lazy" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
-                            <h3>Boarding House Management System</h3>
+                            <h3 class="project-title">Boarding House Management System</h3>
                             <p>A comprehensive system for managing boarding house operations, payments, and resident management.</p>
                             <ul class="project-tech-stack">
-                                <li>Laravel</li>
-                                <li>Tailwind</li>
-                                <li>JavaScript</li>
-                                <li>MySQL</li>
-                                <li>MVC</li>
+                                <li class="tech-chip">Laravel</li>
+                                <li class="tech-chip">Tailwind</li>
+                                <li class="tech-chip">JavaScript</li>
+                                <li class="tech-chip">MySQL</li>
+                                <li class="tech-chip">MVC</li>
                             </ul>
                             <div class="project-links">
-                                <a href="https://github.com/bryanferd23/BHMS2" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                <a href="https://github.com/bryanferd23/BHMS2" class="project-link github" target="_blank" aria-label="View Boarding House Management System on GitHub" title="View on GitHub">
                                     <i class="fab fa-github" aria-hidden="true"></i>
                                 </a>
+
                             </div>
                         </div>
                     </div>
                 </article>
-                <article class="project-card">
-                    <div class="project-content" style="background-image: url('resources/project/pos.png');">
+                <article class="project-card glass-card tilt-card">
+                    <div class="project-content" style="background-image: none;">
+                        <img src="resources/project/pos.png" alt="Point of Sale" class="project-img" loading="lazy" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
-                            <h3>Point of Sale</h3>
+                            <h3 class="project-title">Point of Sale</h3>
                             <p>An efficient point-of-sale system designed to streamline transactions, inventory management, and sales reporting for retail businesses.</p>
                             <ul class="project-tech-stack">
-                                <li>HTML</li>
-                                <li>Tailwind</li>
-                                <li>JavaScript</li>
+                                <li class="tech-chip">HTML</li>
+                                <li class="tech-chip">Tailwind</li>
+                                <li class="tech-chip">JavaScript</li>
                             </ul>
                             <div class="project-links">
-                                <a href="https://bryanferd23.github.io/bryanferd23.github.io-simple-pos/" class="project-link" target="_blank" aria-label="View Google Sheet Master Project">
+                                <a href="https://bryanferd23.github.io/bryanferd23.github.io-simple-pos/" class="project-link" target="_blank" aria-label="View Point of Sale Demo" title="Open Demo">
                                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 </a>
-                                <a href="https://github.com/bryanferd23/bryanferd23.github.io-simple-pos" class="project-link github" target="_blank" aria-label="View Google Sheet Master GitHub Repository">
+                                <a href="https://github.com/bryanferd23/bryanferd23.github.io-simple-pos" class="project-link github" target="_blank" aria-label="View Point of Sale on GitHub" title="View on GitHub">
                                     <i class="fab fa-github" aria-hidden="true"></i>
                                 </a>
+
                             </div>
                         </div>
                     </div>
                 </article>
             </div>
             <div class="view-more-container">
-                <a href="https://github.com/bryanferd23" target="_blank" class="cta-button">View More Projects</a>
+                <a href="https://github.com/bryanferd23" target="_blank" class="cta-button cta-2025">
+                    <span class="cta-text">View More Projects</span>
+                    <span class="cta-arrow">→</span>
+                </a>
             </div>
         </section>
 
+        <!-- Timeline/Experience Section -->
+        <section class="timeline-section">
+            <h2 class="section-title" data-aos="fade-up">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot" tabindex="0" aria-label="Full-time, Remote" data-tooltip="Full-time · Remote"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-icon"><i class="fas fa-laptop-code"></i></span>
+                            <h3 class="timeline-role">Full Stack Web Developer <span class="current-badge">Current</span></h3>
+                        </div>
+                        <div class="timeline-meta">Cloudesk Pty Ltd · Full-time</div>
+                        <div class="timeline-date">Dec 2024 – Present · 7 mos</div>
+                        <div class="timeline-location">Cebu, Central Visayas, Philippines · Remote</div>
+                        <div class="timeline-tech">
+                            <span class="tech-chip">PHP</span>
+                            <span class="tech-chip">Laravel</span>
+                            <span class="tech-chip">JavaScript</span>
+                            <span class="tech-chip">MySQL</span>
+                            <span class="tech-chip">API</span>
+                            <span class="tech-chip">Cloud</span>
+                        </div>
+                        <button class="timeline-toggle" aria-expanded="false" aria-controls="timeline-list-1">Show Details</button>
+                        <ul class="timeline-list" id="timeline-list-1" hidden>
+                            <li>Improved and developed new features for existing web applications, APIs, and databases, enhancing overall system performance and user experience.</li>
+                            <li>Maintained and optimized existing systems to ensure high availability, security, and responsiveness.</li>
+                            <li>Supported cross-functional projects by troubleshooting issues, implementing improvements, and deploying updates with minimal downtime.</li>
+                            <li>Authored clear technical and user-facing documentation for new features and system changes, improving internal knowledge sharing and onboarding.</li>
+                            <li>Balanced multiple priorities in a fast-paced environment, consistently meeting deadlines without compromising code quality.</li>
+                            <li>Explored and integrated modern technologies and frameworks to drive innovation and long-term maintainability.</li>
+                            <li>Collaborated with designers, developers, and stakeholders to deliver intuitive, user-focused solutions aligned with business objectives.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot" tabindex="0" aria-label="Freelance, Remote" data-tooltip="Freelance · Remote"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-icon"><i class="fas fa-brain"></i></span>
+                            <h3 class="timeline-role">AI Model Training Specialist</h3>
+                        </div>
+                        <div class="timeline-meta">Outlier · Freelance</div>
+                        <div class="timeline-date">Oct 2024 – Dec 2024 · 3 mos</div>
+                        <div class="timeline-location">Oakland, California, United States · Remote</div>
+                        <div class="timeline-tech">
+                            <span class="tech-chip">Computer Science</span>
+                            <span class="tech-chip">Code Review</span>
+                            <span class="tech-chip">Enablement</span>
+                            <span class="tech-chip">Programming</span>
+                        </div>
+                        <button class="timeline-toggle" aria-expanded="false" aria-controls="timeline-list-2">Show Details</button>
+                        <ul class="timeline-list" id="timeline-list-2" hidden>
+                            <li>Contributed to the training of generative AI models by providing precise, contextual answers to over 300 computer science-related questions, improving their ability to generate high-quality code.</li>
+                            <li>Evaluated and ranked AI-generated code for over 152 tasks, earning 100% positive feedback for accuracy, expertise, and attention to detail.</li>
+                            <li>Completed 16+ enablement programs, gaining advanced programming proficiency through hands-on workshops and exposure to state-of-the-art tools and techniques.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Tools Section -->
+        <section class="skills-section">
+            <h2 class="section-title" data-aos="fade-up">
+                Skills & Tools
+            </h2>
+            <div class="skills-grid">
+                <!-- Productivity Tools -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Software & Productivity</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="tech-chip">Microsoft Office</span>
+                        <span class="tech-chip">Google Apps</span>
+                        <span class="tech-chip">Google Sheets</span>
+                        <span class="tech-chip">Google Apps Script</span>
+                        <span class="tech-chip">Canva</span>
+                        <span class="tech-chip">Trello</span>
+                        <span class="tech-chip">Slack</span>
+                        <span class="tech-chip">Folge</span>
+                        <span class="tech-chip">Handbrake</span>
+                    </div>
+                </div>
+                <!-- Web Development -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Web Development</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="tech-chip">PHP</span>
+                        <span class="tech-chip">Laravel</span>
+                        <span class="tech-chip">CodeIgniter</span>
+                        <span class="tech-chip">Symfony</span>
+                        <span class="tech-chip">JavaScript</span>
+                        <span class="tech-chip">JQuery</span>
+                        <span class="tech-chip">HTML/CSS</span>
+                        <span class="tech-chip">Tailwind</span>
+                        <span class="tech-chip">Bootstrap</span>
+                        <span class="tech-chip">Postman</span>
+                    </div>
+                </div>
+                <!-- Mobile Development -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Development</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="tech-chip">React Native</span>
+                        <span class="tech-chip">Expo</span>
+                    </div>
+                </div>
+                <!-- Programming Languages -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-header">
+                        <i class="fas fa-terminal"></i>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="tech-chip">PHP</span>
+                        <span class="tech-chip">JavaScript</span>
+                        <span class="tech-chip">Java</span>
+                        <span class="tech-chip">C</span>
+                        <span class="tech-chip">C++</span>
+                        <span class="tech-chip">C#</span>
+                        <span class="tech-chip">Python</span>
+                    </div>
+                </div>
+                <!-- Database Management -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="skill-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Database Management</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="tech-chip">MySQL</span>
+                        <span class="tech-chip">SQLite</span>
+                        <span class="tech-chip">PostgreSQL</span>
+                    </div>
+                </div>
+                <!-- Development Focus -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Development Focus</h3>
+                    </div>
+                    <ul class="focus-list">
+                        <li><i class="fas fa-code-branch"></i> Full-stack development</li>
+                        <li><i class="fas fa-plug"></i> API integration & development</li>
+                        <li><i class="fas fa-cogs"></i> System development</li>
+                    </ul>
+                </div>
+                <!-- Data Analysis & Reporting -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="skill-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Data Analysis & Reporting</h3>
+                    </div>
+                    <ul class="focus-list">
+                        <li><i class="fas fa-database"></i> Data processing</li>
+                        <li><i class="fas fa-file-alt"></i> Reporting</li>
+                        <li><i class="fas fa-lightbulb"></i> Strategic insights</li>
+                    </ul>
+                </div>
+                <!-- Problem Solving & Collaboration -->
+                <div class="skill-card glass-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="skill-header">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <ul class="focus-list">
+                        <li><i class="fas fa-tools"></i> Troubleshooting & system maintenance</li>
+                        <li><i class="fas fa-sync-alt"></i> Workflow optimization</li>
+                        <li><i class="fas fa-users"></i> Team collaboration & leadership</li>
+                        <li><i class="fas fa-random"></i> Adaptability in dynamic environments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         <section id="certifications" class="certifications">
             <div class="certifications">
                 <h3 class="cert-title">Certifications</h3>
                 <div class="cert-container">
                     <div class="cert-card" data-cert="cert1">
-                        <div class="cert-front">
-                        </div>
+                        <div class="cert-front"></div>
                         <div class="cert-back">
                             <h4>Computer Programming</h4>
                             <p>Department of Information and Communications Technology</p>
-                            <a href="#" class="cert-link" data-image="resources/cert1.jpg">View Certificate</a>
+                            <a href="#" class="cert-link" data-image="resources/cert1.jpg" data-cert-index="0">View Certificate</a>
                         </div>
                     </div>
                     <div class="cert-card" data-cert="cert2">
-                        <div class="cert-front">
-                        </div>
+                        <div class="cert-front"></div>
                         <div class="cert-back">
                             <h4>EDP Specialist</h4>
                             <p>Civil Service Commission</p>
                             <p>2023</p>
-                            <a href="#" class="cert-link" data-image="resources/cert2.jpg">View Certificate</a>
+                            <a href="#" class="cert-link" data-image="resources/cert2.jpg" data-cert-index="1">View Certificate</a>
                         </div>
                     </div>
                     <div class="cert-card" data-cert="cert3">
-                        <div class="cert-front">
-                        </div>
+                        <div class="cert-front"></div>
                         <div class="cert-back">
                             <h4>TEFL</h4>
                             <p>Techer Record</p>
                             <p>2023</p>
-                            <a href="#" class="cert-link" data-image="resources/cert3.jpg">View Certificate</a>
+                            <a href="#" class="cert-link" data-image="resources/cert3.jpg" data-cert-index="2">View Certificate</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="view-more-container" style="margin-top: 30px;">
-                <a href="https://www.linkedin.com/in/fjperante/details/certifications/" target="_blank" class="cta-button">View More Certificates</a>
+                <a href="https://www.linkedin.com/in/fjperante/details/certifications/" target="_blank" class="cta-button cta-2025">
+                    <span class="cta-text">View More Certificates</span>
+                    <span class="cta-arrow">→</span>
+                </a>
             </div>
         </section>
-
 
         <section id="about" class="about">
             <div class="about-content">
@@ -225,16 +448,17 @@
                 </h2>
                 <p>As a passionate full-stack developer, I blend creativity with technical expertise to craft digital experiences that leave a lasting impression. My journey in tech is driven by:</p>
                 <ul class="about-list">
-                    <li><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
-                    <li><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
-                    <li><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
-                    <li><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
+                    <li class="about-animate"><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
+                    <li class="about-animate"><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
+                    <li class="about-animate"><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
+                    <li class="about-animate"><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
                 </ul>
                 <p>Whether it's building robust web applications or streamlining processes through innovative software, I'm dedicated to pushing the boundaries of what's possible in the digital realm.</p>
                 
                 
                 <div class="cta-container">
-                    <a href="#contact" class="cta-button">Get in Touch</a>
+                    <!-- Removed Get in Touch button -->
+                    <!-- <a href="#contact" class="cta-button">Get in Touch</a> -->
                     <!-- <a href="resources/perante_resume.pdf" target="_blank" class="download-cv" download>
                         <i class="fas fa-download"></i> Download Resume
                     </a> -->
@@ -247,17 +471,18 @@
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="contact-description">Have a question or want to work together? I'd love to hear from you!</p>
                 <form id="contactForm" class="contact-form" onsubmit="return sendEmail(event);">
-                    <div class="form-group">
-                        <label for="subject" class="visually-hidden">Subject</label>
-                        <input type="text" id="subject" name="subject" required placeholder="Subject">
+                    <div class="form-group floating-label">
+                        <input type="text" id="subject" name="subject" required placeholder=" " autocomplete="off">
+                        <label for="subject">Subject</label>
                     </div>
-                    <div class="form-group">
-                        <label for="message" class="visually-hidden">Message</label>
-                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    <div class="form-group floating-label">
+                        <textarea id="message" name="message" required placeholder=" " autocomplete="off"></textarea>
+                        <label for="message">Your Message</label>
                     </div>
-                    <button type="submit" class="cta-button">
+                    <button type="submit" class="cta-button cta-2025 submit-btn">
                         <span class="btn-text">Send Message</span>
                         <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        <span class="btn-spinner" style="display:none;"></span>
                     </button>
                 </form>
                 <div id="formStatus" class="form-status" aria-live="polite"></div>
@@ -278,9 +503,12 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
-    <div id="certModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="certImage">
+    <div id="certModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="certImage">
+        <button class="cert-prev" aria-label="Previous Certificate" tabindex="0"><i class="fas fa-chevron-left"></i></button>
+        <span class="close" tabindex="0">&times;</span>
+        <img class="modal-content" id="certImage" loading="lazy">
+        <button class="cert-next" aria-label="Next Certificate" tabindex="0"><i class="fas fa-chevron-right"></i></button>
     </div>
+
 </body>
 </html>
