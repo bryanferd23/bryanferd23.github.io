@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
 
-    // Refactored dark mode toggle
+    // Dark mode toggle
     const toggleDarkMode = () => {
         body.classList.toggle('dark-mode');
         const icon = darkModeToggle.querySelector('i');
@@ -10,37 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.toggle('fa-sun');
     };
     darkModeToggle.addEventListener('click', toggleDarkMode);
-
-    // Refactored smooth scrolling
-    const smoothScroll = (e) => {
-        e.preventDefault();
-        const targetId = e.currentTarget.getAttribute('href');
-        if (targetId === '#') {
-            // If the href is just '#', scroll to the top of the page
-            // window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            // Otherwise, scroll to the specified element
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                console.error(`Element with id "${targetId}" not found`);
-            }
-        }
-    };
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', smoothScroll);
-    });
-
-    // Refactored header scroll effect
-    const handleHeaderScroll = () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        header.style.transform = `translateY(${scrollTop > lastScrollTop ? '-100%' : '0'})`;
-        lastScrollTop = scrollTop;
-    };
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', handleHeaderScroll);
 
     // Form submission
     const contactForm = document.getElementById('contactForm');
@@ -54,27 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('contactForm').reset();
     });
 
-    // Refactored Intersection Observer
-    const handleIntersection = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    };
-    const fadeObserver = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
-
-    // Intersection Observer for fade-in effect
-    const fadeElems = document.querySelectorAll('.project-card, .about-content, .form-group');
-    fadeElems.forEach(elem => {
-        elem.style.opacity = 0;
-        elem.style.transform = 'translateY(20px)';
-        elem.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        fadeObserver.observe(elem);
+    // Show all elements without scroll effects
+    document.querySelectorAll('.project-card, .about-content, .form-group').forEach(elem => {
+        elem.style.opacity = 1;
+        elem.style.transform = 'none';
     });
 
-    // Refactored hamburger menu functionality
+    // Hamburger menu functionality
     const toggleMenu = () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('open');
@@ -91,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-links li');
     hamburger.addEventListener('click', toggleMenu);
 
-    // Refactored close menu functionality
+    // Close menu functionality
     const closeMenu = () => {
         navLinks.classList.remove('open');
         hamburger.classList.remove('open');
@@ -128,9 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         certObserver.observe(card);
     });
 
-
-
-    // === About Section Animation on Scroll ===
+    // About Section Animation on Scroll
     const aboutItems = document.querySelectorAll('.about-animate');
     const aboutObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -144,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutObserver.observe(item);
     });
 
-    // === Contact Form Button Spinner & Feedback ===
+    // Contact Form Button Spinner & Feedback
     const contactFormBtn = document.querySelector('.submit-btn');
     const btnText = contactFormBtn.querySelector('.btn-text');
     const btnSpinner = contactFormBtn.querySelector('.btn-spinner');
@@ -164,44 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1200);
     });
 
-    // Instead, always start in light mode unless toggled
-    document.body.classList.remove('dark-mode');
-    document.body.setAttribute('data-theme', 'light');
-
-    // === Reduced Motion Auto-detect ===
+    // Reduced motion preference (kept for accessibility)
     function setReducedMotion() {
         const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         document.body.setAttribute('data-reduced-motion', prefersReduce ? 'reduce' : 'auto');
     }
     setReducedMotion();
-    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', setReducedMotion);
 
-    // === Modal Accessibility: Focus Trap, Esc, ARIA ===
-    function trapFocus(modal) {
-        const focusable = modal.querySelectorAll('a, button, input, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        modal.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                if (e.shiftKey) {
-                    if (document.activeElement === first) {
-                        e.preventDefault();
-                        last.focus();
-                    }
-                } else {
-                    if (document.activeElement === last) {
-                        e.preventDefault();
-                        first.focus();
-                    }
-                }
-            }
-            if (e.key === 'Escape') {
-                modal.classList.remove('show');
-                setTimeout(() => { modal.style.display = 'none'; }, 300);
-            }
-        });
-    }
     // Cert Modal
     const certLinks = document.querySelectorAll('.cert-link');
     const certModal = document.getElementById('certModal');
@@ -215,16 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'resources/cert3.jpg'
     ];
     let currentCertIndex = 0;
-    let certScrollPosition = 0;
 
     function openCertModal(index) {
         if (certModal.style.display !== 'block') {
-            certScrollPosition = window.pageYOffset;
             certModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${certScrollPosition}px`;
-            document.body.style.width = '100%';
             setTimeout(() => certModal.classList.add('show'), 50);
             certModal.focus();
         }
@@ -232,20 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
         certModalImg.src = certImages[currentCertIndex];
         certModalImg.setAttribute('aria-label', `Certificate ${currentCertIndex + 1} of ${certImages.length}`);
     }
+    
     function closeCertModal() {
         certModal.classList.remove('show');
         setTimeout(() => {
             certModal.style.display = 'none';
             certModalImg.src = '';
-            // Restore body styles
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            // Restore scroll position
-            if (certScrollPosition !== undefined) {
-                window.scrollTo(0, certScrollPosition);
-            }
         }, 300);
     }
     certLinks.forEach(link => {
@@ -265,40 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Escape') closeCertModal();
         }
     });
-    const parallaxImg = document.querySelector('.parallax-img');
-    if (parallaxImg) {
-        let lastScrollY = window.scrollY;
-        let lastMouseX = 0;
-        let lastMouseY = 0;
-        let ticking = false;
-        function updateParallax() {
-            if (window.innerWidth > 900) {
-                const scrollOffset = (window.scrollY / window.innerHeight) * 30;
-                const mouseOffsetX = (lastMouseX - window.innerWidth / 2) / window.innerWidth * 20;
-                const mouseOffsetY = (lastMouseY - window.innerHeight / 2) / window.innerHeight * 20;
-                parallaxImg.style.transform = `translateY(${-scrollOffset + mouseOffsetY}px) translateX(${mouseOffsetX}px)`;
-            } else {
-                parallaxImg.style.transform = '';
-            }
-            ticking = false;
-        }
-        function requestParallaxUpdate() {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        }
-        window.addEventListener('scroll', () => {
-            lastScrollY = window.scrollY;
-            requestParallaxUpdate();
-        });
-        window.addEventListener('mousemove', (e) => {
-            lastMouseX = e.clientX;
-            lastMouseY = e.clientY;
-            requestParallaxUpdate();
-        });
-        window.addEventListener('resize', requestParallaxUpdate);
-    }
+
 
     // 3D Tilt effect for .tilt-card
     const tiltCards = document.querySelectorAll('.tilt-card');

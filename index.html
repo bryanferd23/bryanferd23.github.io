@@ -17,10 +17,11 @@
         <nav aria-label="Main navigation">
             <a href="#home" class="logo">Ferdz</a>
             <ul class="nav-links">
-                <li><a href="#home" aria-current="page">Home</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button id="darkModeToggle" aria-label="Toggle dark mode">
@@ -217,8 +218,74 @@
             </div>
         </section>
 
+        <section id="certifications" class="certifications">
+            <div class="certifications">
+                <h3 class="cert-title">Certifications</h3>
+                <div class="cert-container">
+                    <div class="cert-card" data-cert="cert1">
+                        <div class="cert-front"></div>
+                        <div class="cert-back">
+                            <h4>Computer Programming</h4>
+                            <p>Department of Information and Communications Technology</p>
+                            <a href="#" class="cert-link" data-image="resources/cert1.jpg" data-cert-index="0">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-card" data-cert="cert2">
+                        <div class="cert-front"></div>
+                        <div class="cert-back">
+                            <h4>EDP Specialist</h4>
+                            <p>Civil Service Commission</p>
+                            <p>2023</p>
+                            <a href="#" class="cert-link" data-image="resources/cert2.jpg" data-cert-index="1">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-card" data-cert="cert3">
+                        <div class="cert-front"></div>
+                        <div class="cert-back">
+                            <h4>TEFL</h4>
+                            <p>Techer Record</p>
+                            <p>2023</p>
+                            <a href="#" class="cert-link" data-image="resources/cert3.jpg" data-cert-index="2">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more-container" style="margin-top: 30px;">
+                <a href="https://www.linkedin.com/in/fjperante/details/certifications/" target="_blank" class="cta-button cta-2025">
+                    <span class="cta-text">View More Certificates</span>
+                    <span class="cta-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2 class="highlight">
+                    <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span>
+                    <span>M</span><span>e</span>
+                </h2>
+                <p>As a passionate full-stack developer, I blend creativity with technical expertise to craft digital experiences that leave a lasting impression. My journey in tech is driven by:</p>
+                <ul class="about-list">
+                    <li class="about-animate"><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
+                    <li class="about-animate"><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
+                    <li class="about-animate"><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
+                    <li class="about-animate"><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
+                </ul>
+                <p>Whether it's building robust web applications or streamlining processes through innovative software, I'm dedicated to pushing the boundaries of what's possible in the digital realm.</p>
+                
+                
+                <div class="cta-container">
+                    <!-- Removed Get in Touch button -->
+                    <!-- <a href="#contact" class="cta-button">Get in Touch</a> -->
+                    <!-- <a href="resources/perante_resume.pdf" target="_blank" class="download-cv" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a> -->
+                </div>
+            </div>
+        </section>
+
         <!-- Timeline/Experience Section -->
-        <section class="timeline-section">
+        <section id="experience" class="timeline-section">
             <h2 class="section-title" data-aos="fade-up">Experience</h2>
             <div class="timeline">
                 <div class="timeline-item" data-aos="fade-up">
@@ -279,7 +346,7 @@
         </section>
 
         <!-- Skills & Tools Section -->
-        <section class="skills-section">
+        <section id="skills" class="skills-section">
             <h2 class="section-title" data-aos="fade-up">
                 Skills & Tools
             </h2>
@@ -400,71 +467,6 @@
             </div>
         </section>
 
-        <section id="certifications" class="certifications">
-            <div class="certifications">
-                <h3 class="cert-title">Certifications</h3>
-                <div class="cert-container">
-                    <div class="cert-card" data-cert="cert1">
-                        <div class="cert-front"></div>
-                        <div class="cert-back">
-                            <h4>Computer Programming</h4>
-                            <p>Department of Information and Communications Technology</p>
-                            <a href="#" class="cert-link" data-image="resources/cert1.jpg" data-cert-index="0">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-cert="cert2">
-                        <div class="cert-front"></div>
-                        <div class="cert-back">
-                            <h4>EDP Specialist</h4>
-                            <p>Civil Service Commission</p>
-                            <p>2023</p>
-                            <a href="#" class="cert-link" data-image="resources/cert2.jpg" data-cert-index="1">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-cert="cert3">
-                        <div class="cert-front"></div>
-                        <div class="cert-back">
-                            <h4>TEFL</h4>
-                            <p>Techer Record</p>
-                            <p>2023</p>
-                            <a href="#" class="cert-link" data-image="resources/cert3.jpg" data-cert-index="2">View Certificate</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="view-more-container" style="margin-top: 30px;">
-                <a href="https://www.linkedin.com/in/fjperante/details/certifications/" target="_blank" class="cta-button cta-2025">
-                    <span class="cta-text">View More Certificates</span>
-                    <span class="cta-arrow">→</span>
-                </a>
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="about-content">
-                <h2 class="highlight">
-                    <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span>
-                    <span>M</span><span>e</span>
-                </h2>
-                <p>As a passionate full-stack developer, I blend creativity with technical expertise to craft digital experiences that leave a lasting impression. My journey in tech is driven by:</p>
-                <ul class="about-list">
-                    <li class="about-animate"><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
-                    <li class="about-animate"><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
-                    <li class="about-animate"><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
-                    <li class="about-animate"><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
-                </ul>
-                <p>Whether it's building robust web applications or streamlining processes through innovative software, I'm dedicated to pushing the boundaries of what's possible in the digital realm.</p>
-                
-                
-                <div class="cta-container">
-                    <!-- Removed Get in Touch button -->
-                    <!-- <a href="#contact" class="cta-button">Get in Touch</a> -->
-                    <!-- <a href="resources/perante_resume.pdf" target="_blank" class="download-cv" download>
-                        <i class="fas fa-download"></i> Download Resume
-                    </a> -->
-                </div>
-            </div>
-        </section>
 
         <section id="contact" class="contact">
             <div class="contact-container">
@@ -486,17 +488,30 @@
                     </button>
                 </form>
                 <div id="formStatus" class="form-status" aria-live="polite"></div>
+                
+                <div class="contact-divider">
+                    <span>Or reach out through</span>
+                </div>
+                
+                <div class="social-links contact-social">
+                    <a href="https://github.com/bryanferd23" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://gitlab.com/ferdz.waine.mai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitLab">
+                        <i class="fab fa-gitlab"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fjperante/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/bryanferd23/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="social-links">
-            <a href="https://github.com/bryanferd23" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            <a href="https://gitlab.com/ferdz.waine.mai" target="_blank" aria-label="GitLab"><i class="fab fa-gitlab" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/fjperante/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/bryanferd23/" target="_blank" aria-label="Twitter"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-        </div>
         <p>&copy; 2024 Ferdz. All rights reserved.</p>
         <p>This project is owned and maintained by Ferdz. View the source code on <a href="https://github.com/bryanferd23/bryanferd23.github.io" target="_blank">GitHub</a>.</p>
     </footer>

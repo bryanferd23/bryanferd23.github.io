@@ -2192,4 +2192,93 @@ section, .glass-card, .cert-card, .about-content, .contact-container {
     color: #111 !important;
 }
 
+/* ======================
+   Contact Social Links
+   ====================== */
+.contact-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2.5rem 0;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
 
+.contact-divider::before,
+.contact-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color, rgba(0,0,0,0.1)));
+}
+
+.contact-divider::after {
+    background: linear-gradient(90deg, var(--border-color, rgba(0,0,0,0.1)), transparent);
+}
+
+.contact-divider span {
+    padding: 0 1.5rem;
+    position: relative;
+    top: 1px;
+}
+
+.contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin: 2rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.contact-social .social-link {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-decoration: none !important;
+}
+
+.contact-social .social-link:hover {
+    color: var(--accent-color, #6c5ce7);
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.2);
+    border-color: var(--accent-color);
+}
+
+/* Dark mode adjustments */
+.dark-mode .contact-social .social-link {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-social {
+        gap: 1.2rem;
+    }
+    
+    .contact-social .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+    }
+    
+    .contact-divider {
+        margin: 2rem 0;
+        font-size: 0.9rem;
+    }
+}
