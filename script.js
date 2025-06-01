@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true
     });
 
-    // Refactored Intersection Observer for certifications
+    // Intersection Observer for certifications with fade-in effect
     const certCards = document.querySelectorAll('.cert-card');
     
     const certObserver = new IntersectionObserver((entries) => {
@@ -113,43 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add a staggered delay to each card
                 setTimeout(() => {
                     entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0) rotateY(0)';
+                    entry.target.style.transform = 'translateY(0)';
                 }, index * 200); // 200ms delay between each card
                 certObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
+    // Initialize card styles
     certCards.forEach(card => {
         card.style.opacity = 0;
-        card.style.transform = 'translateY(20px) rotateY(-90deg)';
+        card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         certObserver.observe(card);
-    });
-
-    // Add event listeners for certificate card flipping animation
-    certCards.forEach(card => {
-        let isFlipping = false;
-        let flipTimeout;
-
-        const startFlip = () => {
-            if (!isFlipping) {
-                isFlipping = true;
-                clearTimeout(flipTimeout);
-                card.classList.add('flipped');
-            }
-        };
-
-        const endFlip = () => {
-            clearTimeout(flipTimeout);
-            flipTimeout = setTimeout(() => {
-                card.classList.remove('flipped');
-                isFlipping = false;
-            }, 1000); // Delay before flipping back
-        };
-
-        card.addEventListener('mouseenter', startFlip);
-        card.addEventListener('mouseleave', endFlip);
     });
 
     
