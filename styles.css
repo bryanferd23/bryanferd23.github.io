@@ -2259,10 +2259,32 @@ section, .glass-card, .cert-card, .about-content, .contact-container {
     border-color: var(--accent-color);
 }
 
-/* Dark mode adjustments */
-.dark-mode .contact-social .social-link {
+/* Dark mode adjustments for contact section */
+.dark-mode .contact-social .social-link,
+.dark-mode .contact-social .social-link i {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);
+    color: #333 !important; /* Force dark text color */
+}
+
+/* Keep contact divider text color consistent in dark mode */
+.dark-mode .contact-divider,
+.dark-mode .contact-divider span {
+    color: #333 !important; /* Force dark text color */
+}
+
+.dark-mode .contact-divider::before,
+.dark-mode .contact-divider::after {
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2)) !important;
+}
+
+.dark-mode .contact-divider::after {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent) !important;
+}
+
+/* Ensure social icons are visible */
+.dark-mode .contact-social .social-link i {
+    color: inherit !important;
 }
 
 /* Responsive adjustments */
