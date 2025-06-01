@@ -160,13 +160,36 @@ nav ul li a:hover {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Base size */
     font-weight: 700;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 0 auto 2.5rem; /* Consistent vertical spacing */
     position: relative;
     overflow: hidden;
     color: var(--primary-color) !important;
+    line-height: 1.2;
+    max-width: 100%;
+    padding: 0 1rem; /* Add horizontal padding for better edge spacing */
+}
+
+/* Responsive section title sizes */
+@media (min-width: 576px) {
+    .section-title {
+        font-size: 2.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .section-title {
+        font-size: 3.25rem;
+        margin-bottom: 3rem;
+    }
 }
 
 .reveal-text {
@@ -209,12 +232,7 @@ nav ul li a:hover {
     100% { transform: scaleX(0); transform-origin: right; }
 }
 
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2.5rem;
-    }
-}
-
+/* Project grid styles */
 .project-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -850,12 +868,13 @@ footer {
 
     .cta-button, .download-cv {
         width: 100%;
+        max-width: 350px;
         text-align: center !important;
         padding: auto !important;
     }
 
     .view-more-container {
-        padding-inline: 5rem;
+        padding-inline: 2rem;
     }
 }
 
@@ -1870,7 +1889,7 @@ section, .glass-card {
 }
 
 .timeline-section {
-    padding: 80px 0 40px 0;
+    padding: 80px 0;
     background: var(--bg-color);
     position: relative;
     z-index: 2;
@@ -1878,20 +1897,20 @@ section, .glass-card {
 .timeline {
     position: relative;
     max-width: 700px;
-    margin: 0 auto;
-    padding-left: 32px;
+    margin: 2rem auto;
+    padding-left: 24px;
     border-left: 3px solid var(--accent-color);
 }
 .timeline-item {
     position: relative;
     margin-bottom: 48px;
-    padding-left: 24px;
+    padding-left: 16px;
     animation: fadeInUp 0.7s both;
 }
 .timeline-dot {
     position: absolute;
-    left: -43.75px;
-    top: 12px;
+    left: -35px;
+    top: 30px;
     width: 22px;
     height: 22px;
     background: #fff;
@@ -1906,10 +1925,13 @@ section, .glass-card {
 }
 @media (max-width: 700px) {
     .timeline-dot {
-        left: -28px;
+        left: -8px;
         width: 16px;
         height: 16px;
         top: 12px;
+    }
+    .timeline {
+        padding-left: 0px !important;
     }
 }
 .timeline-content {
@@ -2320,25 +2342,54 @@ section, .glass-card {
     color: inherit !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-social {
-        gap: 1.2rem;
-    }
-    
-    .contact-social .social-link {
-        width: 44px;
-        height: 44px;
-        font-size: 1.4rem;
-    }
-    
-    .contact-divider {
-        margin: 2rem 0;
-        font-size: 0.9rem;
-    }
-}
 
+/* Responsive adjustments */
+/* ===== Mobile Styles (max-width: 768px) ===== */
 @media (max-width: 768px) {
+    /* Hero Section */
+    .hero {
+        align-items: center;
+        margin-top: 2rem;
+        height: 100%;
+        padding-top: 1.5rem;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
+    .hero-headline-2025 {
+        font-size: 2.8rem !important;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+    
+    .headline-gradient {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-container {
+        margin-top: 1rem;
+    }
+    
+    .cta-button {
+        font-size: 1rem !important;
+        height: 3rem !important;
+    }
+    
+    /* Contact Section */
     .contact-social {
         gap: 1.2rem;
     }
@@ -2352,5 +2403,19 @@ section, .glass-card {
     .contact-divider {
         margin: 2rem 0;
         font-size: 0.9rem;
+    }
+    
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .close {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+        width: 35px;
+        height: 35px;
     }
 }
