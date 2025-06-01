@@ -2025,6 +2025,7 @@ section, .glass-card, .cert-card, .about-content, .contact-container {
     transition: color 0.2s;
     outline: none;
     display: inline-block;
+    margin-top: 1rem;
 }
 .timeline-toggle:hover, .timeline-toggle:focus {
     color: var(--accent-color);
