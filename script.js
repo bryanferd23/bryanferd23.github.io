@@ -166,6 +166,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (certPrevBtn) certPrevBtn.addEventListener('click', () => openCertModal(currentCertIndex - 1));
     if (certNextBtn) certNextBtn.addEventListener('click', () => openCertModal(currentCertIndex + 1));
     if (certCloseBtn) certCloseBtn.addEventListener('click', closeCertModal);
+    
+    // Close modal when clicking outside the image
+    certModal.addEventListener('click', function(e) {
+        // Only close if clicking on the modal backdrop (not on the image or navigation buttons)
+        if (e.target === certModal) {
+            closeCertModal();
+        }
+    });
+    
     window.addEventListener('keydown', function(e) {
         if (certModal.classList.contains('show')) {
             if (e.key === 'ArrowLeft') openCertModal(currentCertIndex - 1);
