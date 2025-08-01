@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferdz Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
 </head>
 <body data-theme="light" data-reduced-motion="auto">
-    <a href="#mainContent" class="visually-hidden skip-link">Skip to main content</a>
+    <div class="skip-links">
+        <a href="#mainContent" class="skip-link">Skip to main content</a>
+        <a href="#portfolio" class="skip-link">Skip to portfolio</a>
+        <a href="#contact" class="skip-link">Skip to contact</a>
+    </div>
     <header>
         <nav aria-label="Main navigation">
             <a href="#home" class="logo">Ferdz</a>
@@ -24,8 +27,9 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button id="darkModeToggle" aria-label="Toggle dark mode">
+            <button id="darkModeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Switch theme">
                 <i class="fas fa-moon" aria-hidden="true"></i>
+                <span class="sr-only">Toggle dark mode</span>
             </button>
             <div class="hamburger">
                 <span></span>
@@ -38,48 +42,60 @@
     <main id="mainContent" role="main">
         <section id="home" class="hero hero-2025">
             <div class="hero-bg-gradient"></div>
-            <!-- Animated Blob SVG Background -->
-            <svg class="hero-blob-bg" viewBox="0 0 800 600" width="100%" height="100%" style="position:absolute;top:0;left:0;width:100vw;height:100vh;z-index:1;pointer-events:none;">
-                <defs>
-                    <linearGradient id="blobGradient" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#a18cd1"/>
-                        <stop offset="100%" stop-color="#fbc2eb"/>
-                    </linearGradient>
-                </defs>
-                <path id="blob" fill="url(#blobGradient)" opacity="0.35">
-                    <animate attributeName="d" dur="12s" repeatCount="indefinite"
-                        values="M421,320Q420,390,350,420Q280,450,210,420Q140,390,140,320Q140,250,210,220Q280,190,350,220Q420,250,421,320Z;
-                        M430,320Q420,390,350,420Q280,450,210,420Q140,390,160,320Q180,250,210,220Q280,190,350,220Q420,250,430,320Z;
-                        M421,320Q420,390,350,420Q280,450,210,420Q140,390,140,320Q140,250,210,220Q280,190,350,220Q420,250,421,320Z"/>
-                </path>
-            </svg>
+            <div class="hero-pattern" aria-hidden="true"></div>
             <div class="hero-content">
-                <div class="hero-text" data-aos="fade-right">
-                    <h1 class="glitch hero-headline-2025" data-text="Code. Innovate. Create.">
-                        <span class="headline-gradient">Code. Innovate. Create.</span>
+                <div class="hero-text" data-aos="fade-up" data-aos-delay="100">
+                    <h1 class="hero-headline-2025">
+                        <span class="headline-gradient">Full-Stack</span>
+                        <span class="headline-gradient">Developer</span>
                     </h1>
-                    <p class="subtitle" style="z-index:2;position:relative;">Bringing ideas to life through code and innovation</p>
-                    <a href="#portfolio" class="cta-button cta-2025">
-                        <span class="cta-text">Explore My Work</span>
-                        <span class="cta-arrow">→</span>
-                    </a>
+                    <p class="subtitle">Crafting digital experiences with modern technologies and innovative solutions</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">Client Success</span>
+                            <span class="stat-label">GUARANTEED</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Modern Stack</span>
+                            <span class="stat-label">EXPERTISE</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">SUPPORT</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="cta-button cta-primary">
+                            <span class="cta-text">View Portfolio</span>
+                            <i class="fas fa-arrow-right cta-icon"></i>
+                        </a>
+                        <a href="#contact" class="cta-button cta-secondary">
+                            <span class="cta-text">Get In Touch</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="profile-container profile-3d parallax-img" data-aos="fade-left">
-                    <img src="resources/profile-image.jpg" alt="Ferdz" class="profile-image profile-image-3d" loading="lazy">
-                    <div class="profile-outline" aria-hidden="true"></div>
-                    <div class="profile-dots" aria-hidden="true"></div>
+                <div class="profile-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="profile-wrapper">
+                        <img src="resources/profile-image.jpg" alt="Bryan Perante - Full Stack Developer" class="profile-image" loading="eager" decoding="async" width="300" height="300">
+                        <div class="profile-badge">
+                            <i class="fas fa-code"></i>
+                            <span>Available for work</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="portfolio" class="portfolio">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="reveal-text">Featured Projects</span>
-            </h2>
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">A showcase of my recent work and technical expertise</p>
+                </div>
             <div class="project-grid">
-                <article class="project-card glass-card tilt-card" data-aos="zoom-in">
+                <article class="project-card glass-card tilt-card" data-aos="fade-up" data-aos-delay="100" role="article" tabindex="0">
                     <div class="project-content" style="background-image: none;">
-                        <img src="resources/project/RIS.png" alt="Radiology Information System" class="project-img" loading="lazy" />
+                        <img src="resources/project/RIS.png" alt="Radiology Information System - Healthcare management application" class="project-img" loading="lazy" decoding="async" width="350" height="200" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
                             <h3 class="project-title">Radiology Information System</h3>
@@ -91,8 +107,9 @@
                                 <li class="tech-chip">HTML/CSS</li>
                             </ul>
                             <div class="project-links">
-                                <a href="https://github.com/bryanferd23/Radiology-Information-System-with-Teleradiology" class="project-link github" target="_blank" aria-label="View Radiology Information System on GitHub" title="View on GitHub">
+                                <a href="https://github.com/bryanferd23/Radiology-Information-System-with-Teleradiology" class="project-link github" target="_blank" rel="noopener noreferrer" aria-label="View Radiology Information System source code on GitHub">
                                     <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span class="link-text">GitHub</span>
                                 </a>
                             </div>
                         </div>
@@ -100,7 +117,7 @@
                 </article>
                 <article class="project-card glass-card tilt-card">
                     <div class="project-content" style="background-image: none;">
-                        <img src="resources/project/data-analysis.png" alt="Google Sheet Master" class="project-img" loading="lazy" />
+                        <img src="resources/project/data-analysis.png" alt="Google Sheet Master - Advanced data analysis tool" class="project-img" loading="lazy" decoding="async" width="350" height="200" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
                             <h3 class="project-title">Google Sheet Master</h3>
@@ -115,7 +132,7 @@
                 </article>
                 <article class="project-card glass-card tilt-card">
                     <div class="project-content" style="background-image: none;">
-                        <img src="resources/project/restful-api.png" alt="Restful API" class="project-img" loading="lazy" />
+                        <img src="resources/project/restful-api.png" alt="RESTful API - Backend service architecture" class="project-img" loading="lazy" decoding="async" width="350" height="200" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
                             <h3 class="project-title">Restful API</h3>
@@ -137,7 +154,7 @@
                 </article>
                 <article class="project-card glass-card tilt-card">
                     <div class="project-content" style="background-image: none;">
-                        <img src="resources/project/power-tracker.png" alt="Smart Power Tracker" class="project-img" loading="lazy" />
+                        <img src="resources/project/power-tracker.png" alt="Smart Power Tracker - IoT energy monitoring solution" class="project-img" loading="lazy" decoding="async" width="350" height="200" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
                             <h3 class="project-title">Smart Power Tracker</h3>
@@ -160,7 +177,7 @@
                 </article>
                 <article class="project-card glass-card tilt-card">
                     <div class="project-content" style="background-image: none;">
-                        <img src="resources/project/BHMS2.jpeg" alt="Boarding House Management System" class="project-img" loading="lazy" />
+                        <img src="resources/project/BHMS2.jpeg" alt="Boarding House Management System - Property management platform" class="project-img" loading="lazy" decoding="async" width="350" height="200" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
                             <h3 class="project-title">Boarding House Management System</h3>
@@ -183,7 +200,7 @@
                 </article>
                 <article class="project-card glass-card tilt-card">
                     <div class="project-content" style="background-image: none;">
-                        <img src="resources/project/pos.png" alt="Point of Sale" class="project-img" loading="lazy" />
+                        <img src="resources/project/pos.png" alt="Point of Sale - Retail transaction system" class="project-img" loading="lazy" decoding="async" width="350" height="200" />
                         <div class="project-overlay"></div>
                         <div class="project-info">
                             <h3 class="project-title">Point of Sale</h3>
@@ -206,11 +223,12 @@
                     </div>
                 </article>
             </div>
-            <div class="view-more-container">
-                <a href="https://github.com/bryanferd23" target="_blank" class="cta-button cta-2025">
-                    <span class="cta-text">View More Projects</span>
-                    <span class="cta-arrow">→</span>
-                </a>
+                <div class="view-more-container">
+                    <a href="https://github.com/bryanferd23" target="_blank" class="cta-button cta-outline">
+                        <i class="fab fa-github"></i>
+                        <span class="cta-text">View More on GitHub</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -255,17 +273,18 @@
         </section>
 
         <section id="about" class="about">
-            <div class="about-content">
-                <h2 class="highlight">
-                    <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span>
-                    <span>M</span><span>e</span>
-                </h2>
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Get to know more about my journey and expertise</p>
+                </div>
+                <div class="about-content">
                 <p>As a passionate full-stack developer, I blend creativity with technical expertise to craft digital experiences that leave a lasting impression. My journey in tech is driven by:</p>
                 <ul class="about-list">
-                    <li class="about-animate"><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
-                    <li class="about-animate"><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
-                    <li class="about-animate"><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
-                    <li class="about-animate"><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
+                    <li class="about-animate" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-code" aria-hidden="true"></i> Transforming complex ideas into elegant, user-friendly solutions</li>
+                    <li class="about-animate" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-palette" aria-hidden="true"></i> An eye for design that marries form with function</li>
+                    <li class="about-animate" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-rocket" aria-hidden="true"></i> A commitment to optimizing performance and scalability</li>
+                    <li class="about-animate" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-users" aria-hidden="true"></i> Collaborating closely with clients to exceed expectations</li>
                 </ul>
                 <p>Whether it's building robust web applications or streamlining processes through innovative software, I'm dedicated to pushing the boundaries of what's possible in the digital realm.</p>
                 
@@ -477,17 +496,19 @@
                 <p class="contact-description">Have a question or want to work together? I'd love to hear from you!</p>
                 <form id="contactForm" class="contact-form" onsubmit="return sendEmail(event);">
                     <div class="form-group floating-label">
-                        <input type="text" id="subject" name="subject" required placeholder=" " autocomplete="off">
+                        <input type="text" id="subject" name="subject" required placeholder=" " autocomplete="off" aria-describedby="subject-help">
                         <label for="subject">Subject</label>
+                        <div id="subject-help" class="sr-only">Enter the subject of your message</div>
                     </div>
                     <div class="form-group floating-label">
-                        <textarea id="message" name="message" required placeholder=" " autocomplete="off"></textarea>
+                        <textarea id="message" name="message" required placeholder=" " autocomplete="off" aria-describedby="message-help" minlength="10"></textarea>
                         <label for="message">Your Message</label>
+                        <div id="message-help" class="sr-only">Enter your message (minimum 10 characters)</div>
                     </div>
-                    <button type="submit" class="cta-button cta-2025 submit-btn">
+                    <button type="submit" class="cta-button cta-primary submit-btn" aria-describedby="form-status">
                         <span class="btn-text">Send Message</span>
                         <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-                        <span class="btn-spinner" style="display:none;"></span>
+                        <span class="btn-spinner" style="display:none;" aria-hidden="true"></span>
                     </button>
                 </form>
                 <div id="formStatus" class="form-status" aria-live="polite"></div>
@@ -519,12 +540,12 @@
         <p>This project is owned and maintained by Ferdz. View the source code on <a href="https://github.com/bryanferd23/bryanferd23.github.io" target="_blank">GitHub</a>.</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
     <div id="certModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="certImage">
         <button class="cert-prev" aria-label="Previous Certificate" tabindex="0"><i class="fas fa-chevron-left"></i></button>
         <span class="close" tabindex="0">&times;</span>
-        <img class="modal-content" id="certImage" loading="lazy">
+        <img class="modal-content" id="certImage" loading="lazy" decoding="async">
         <button class="cert-next" aria-label="Next Certificate" tabindex="0"><i class="fas fa-chevron-right"></i></button>
     </div>
 

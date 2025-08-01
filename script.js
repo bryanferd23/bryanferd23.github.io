@@ -1,33 +1,93 @@
+// Performance optimizations
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+const throttle = (func, limit) => {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
 
-    // Dark mode toggle
+    // Dark mode with localStorage persistence
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.toggle('dark-mode', savedTheme === 'dark');
+        const icon = darkModeToggle.querySelector('i');
+        icon.classList.toggle('fa-moon', savedTheme !== 'dark');
+        icon.classList.toggle('fa-sun', savedTheme === 'dark');
+    }
+
     const toggleDarkMode = () => {
         body.classList.toggle('dark-mode');
         const icon = darkModeToggle.querySelector('i');
         icon.classList.toggle('fa-moon');
         icon.classList.toggle('fa-sun');
+        
+        // Save preference
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     };
     darkModeToggle.addEventListener('click', toggleDarkMode);
 
-    // Form submission
+    // Optimized form submission with validation
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+    
+    const validateForm = () => {
+        const subject = subjectInput.value.trim();
+        const message = messageInput.value.trim();
+        return subject.length > 0 && message.length > 10;
+    };
+    
+    const handleFormSubmit = (e) => {
         e.preventDefault();
-        const subject = encodeURIComponent(document.getElementById('subject').value);
-        const message = encodeURIComponent(document.getElementById('message').value);
+        
+        if (!validateForm()) {
+            alert('Please fill in all fields with valid content.');
+            return;
+        }
+        
+        const subject = encodeURIComponent(subjectInput.value.trim());
+        const message = encodeURIComponent(messageInput.value.trim());
         const mailtoLink = `mailto:ferdz.waine.mai@gmail.com?subject=${subject}&body=${message}`;
         
         window.location.href = mailtoLink;
-        document.getElementById('contactForm').reset();
-    });
+        contactForm.reset();
+    };
+    
+    contactForm.addEventListener('submit', handleFormSubmit);
 
-    // Show all elements without scroll effects
-    document.querySelectorAll('.project-card, .about-content, .form-group').forEach(elem => {
-        elem.style.opacity = 1;
-        elem.style.transform = 'none';
-    });
+    // Optimized element visibility with requestAnimationFrame
+    const showElements = () => {
+        requestAnimationFrame(() => {
+            document.querySelectorAll('.project-card, .about-content, .form-group').forEach(elem => {
+                elem.style.opacity = 1;
+                elem.style.transform = 'none';
+            });
+        });
+    };
+    showElements();
 
     // Hamburger menu functionality
     const toggleMenu = () => {
@@ -54,34 +114,47 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     links.forEach(link => link.addEventListener('click', closeMenu));
 
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
+    // Optimized AOS initialization
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 600,
+            once: true,
+            easing: 'ease-out',
+            offset: 100
+        });
+    }
 
-    // Intersection Observer for certifications with fade-in effect
+    // Optimized Intersection Observer with reduced threshold
     const certCards = document.querySelectorAll('.cert-card');
     
-    const certObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                // Add a staggered delay to each card
-                setTimeout(() => {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 200); // 200ms delay between each card
-                certObserver.unobserve(entry.target);
-            }
+    if (certCards.length > 0) {
+        const certObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100); // Reduced delay for better performance
+                    });
+                    certObserver.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.05,
+            rootMargin: '50px'
         });
-    }, { threshold: 0.1 });
 
-    // Initialize card styles
-    certCards.forEach(card => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        certObserver.observe(card);
-    });
+        // Initialize card styles more efficiently
+        certCards.forEach(card => {
+            Object.assign(card.style, {
+                opacity: 0,
+                transform: 'translateY(20px)',
+                transition: 'opacity 0.4s ease, transform 0.4s ease'
+            });
+            certObserver.observe(card);
+        });
+    }
 
     // About Section Animation on Scroll
     const aboutItems = document.querySelectorAll('.about-animate');
@@ -184,25 +257,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 3D Tilt effect for .tilt-card
+    // Optimized 3D Tilt effect with throttling
     const tiltCards = document.querySelectorAll('.tilt-card');
-    tiltCards.forEach(card => {
-        if (window.innerWidth > 900) {
-            card.addEventListener('mousemove', (e) => {
+    
+    if (window.innerWidth > 900 && tiltCards.length > 0) {
+        tiltCards.forEach(card => {
+            const handleMouseMove = throttle((e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * 8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-                card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        }
-    });
+                const rotateX = ((y - centerY) / centerY) * 6; // Reduced intensity
+                const rotateY = ((x - centerX) / centerX) * 6;
+                
+                requestAnimationFrame(() => {
+                    card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+            }, 16); // ~60fps
+            
+            const handleMouseLeave = () => {
+                requestAnimationFrame(() => {
+                    card.style.transform = '';
+                });
+            };
+            
+            card.addEventListener('mousemove', handleMouseMove);
+            card.addEventListener('mouseleave', handleMouseLeave);
+        });
+    }
 
     // --- Timeline Expand/Collapse ---
     const timelineToggles = document.querySelectorAll('.timeline-toggle');
